@@ -1,5 +1,5 @@
 repeat task.wait() until game:IsLoaded()
-script_key="eiJEoJVNtXNAQkTvBWmMGQqNImiWJkrW";
+script__key="eiJEoJVNtXNAQkTvBWmMGQqNImiWJkrW";
 
 getgenv().Settings = {
     ["Raid Settings"] = {
