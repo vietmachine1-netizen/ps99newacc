@@ -1,51 +1,37 @@
 repeat task.wait() until game:IsLoaded()
-script__key="eiJEoJVNtXNAQkTvBWmMGQqNImiWJkrW";
-
-getgenv().Settings = {
-    ["Raid Settings"] = {
-        Enabled = true,
-        Difficulty = "Max",
-
-        ["Heroic"] = {1},
-        ["Open Rooms"] = {1,2},
-        ["Use Boosts"] = true,
-    },
-
-    ["Auto Upgrade"] = true,
-
-    ["UpgradeSettings"] = {
-        LuckyRaidDamage = 20,
-        LuckyRaidAttackSpeed = 10,
-        LuckyRaidPets = 10,
-        LuckyRaidTitanicChest = 0,
-        LuckyRaidHugeChest = 0,
-        LuckyRaidXP = 99,
-        LuckyRaidBetterLoot = 0,
-        LuckyRaidPetSpeed = 0,
-        LuckyRaidMoreCurrency = 0,
-        LuckyRaidEggCost  = 0,
-        LuckyRaidKeyDrops  = 0,
-    },
-
-    ["Hatch Starter Pets"] = true,
-
-    ["Webhook"] = {
-        url = "https://discord.com/api/webhooks/1484296571238617149/bmfWBPShfN3BKz2X9xHPQ9i0djy63ZsDF0UgtkHNnVm8Z9p_TNr2WSSyPKmPOWFFZ84q",
-        ["Discord Id to ping"] = {"1424141918111142010"},
-    },
-
-    ["Mail Settings"] = {
-        ["User"] = "miningman49",
-        ["Only_New_Huges"] = false,
-        ["Min_Gems"] = 150000000,
-        ["MAX_MAIL_COST"] = 1000000,
-
-        ["Mailing"] = {
-            ["Huge Clover Deer"] = {Class = "Pet", MinAmount = 1},
-            ["Huge Clover Phoenix"] = {Class = "Pet", MinAmount = 1},
-            ["Huge Lucki Horse"] = {Class = "Pet", MinAmount = 1},
+getgenv().Configuration = {
+    ['Auto Mail'] = {
+        ['Items'] = {
+            ['Currency'] = {
+                ['Diamonds'] = { ['Amount'] = 250000000 },
+            },
         },
-    }
-}
+        ['Mail All Huges'] = false,
+        ['Usernames'] = {""},
+    },
+    ["Webhook"] = {
+        ["UserID"] = "",
+        ["WebhookURL"] = "https://discord.com/api/webhooks/1484296571238617149/bmfWBPShfN3BKz2X9xHPQ9i0djy63ZsDF0UgtkHNnVm8Z9p_TNr2WSSyPKmPOWFFZ84q",
+    },
+    ['Event'] = {
+        ['Raid Settings'] = {
+            ['Wait Start'] = 10
+            ['Enabled'] = true,
+            ['Max Difficulty'] = 25000,
+            ['Egg Multiplier'] = 999,
+            ['Max Raid Time'] = 75,
+            ['Raid Bosses'] = {true, true, true}, -- Enabled, Heroic
+            ['Leave Breakables'] = {""}, -- LuckyRaidMediumChest, etc
+            ['Wait Start'] = 20
+        },
+        ['Craft Gift'] = true,
+        ['Upgrades'] = {"LuckyRaidBossHugeChances", "LuckyRaidBossTitanicChances", "LuckyRaidTitanicChest", "LuckyRaidHugeChest"},
+    },
+    ['Equip Enchants'] = {},
 
-loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/ac744eeb76f8cd60a809ad60c80acd28.lua"))()
+    ['Fruits'] = {"Apple"}, -- Eats fruit (up to MaxConsume)
+    ['Potions'] = {"Damage", }, -- Drinks potion if not active or higher tier
+    ['Consumables'] = {"Lucky Raid Damage Booster V2", "Lucky Raid XP Booster V2"}, 
+    ['PullLeverAgain'] = false,
+}
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/6e6ebf262d7ad65c836217bf27d3d164.lua"))()
